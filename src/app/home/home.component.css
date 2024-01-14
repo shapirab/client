@@ -1,0 +1,22 @@
+.container--header{
+  display: flex;
+  justify-content: center;
+}
+
+.header{
+  text-transform: capitalize;
+  font-size: 3rem;
+}
+
+.container--body{
+  width: 90%;
+}
+
+.body__nav-buttons{
+  background-color: var(--section-color);
+  padding: 1rem 0.5rem;
+}
+
+.btn{
+  margin-left: 1rem;
+}
