@@ -1,1 +1,24 @@
-<p>employees works!</p>
+<div class="container">
+  <button class="btn btn-primary">Add Employee</button>
+  <div class="barrier"></div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="col">Employee Id</th>
+        <th class="col">Employee Name</th>
+        <th class="col">Department</th>
+        <th class="col">Date of Joining</th>
+        <th class="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{employee.id}}</td>
+          <td>{{employee.firstName}}</td>
+          <td>{{employee.lastName}}</td>
+          <td>{{employee.dateOfJoining}}</td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
