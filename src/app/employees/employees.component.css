@@ -1,0 +1,8 @@
+td, th{
+  font-size: 0.8rem;
+}
+
+.icons{
+  display: flex;
+  justify-content: space-around;
+}
