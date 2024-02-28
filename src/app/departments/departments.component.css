@@ -1,0 +1,11 @@
+td, th{
+  font-size: 0.8rem;
+}
+
+.icons{
+  display: flex;
+}
+
+.fa-trash-alt{
+  margin-left: 50px;
+}
