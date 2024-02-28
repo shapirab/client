@@ -12,7 +12,11 @@ export class DepartmentsComponent implements OnInit {
   constructor(private departmentService: DepartmentsService) { }
 
   ngOnInit(): void {
-    this.departments = this.departmentService.getDepartments();
+    this.departmentService.getDepartments()
+    .subscribe({
+      next: res => this.departments = res,
+      error: err => console.log(err)
+    });
   }
 
 }
