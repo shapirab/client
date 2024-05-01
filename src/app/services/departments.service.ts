@@ -19,7 +19,7 @@ export class DepartmentsService {
   // getDepartments(){
   //   return this.departments;
   // }
-  private url = '';
+  private url = 'https://localhost:7177/api/departments';
   constructor(private http: HttpClient){}
 
   getDepartments(): Observable<Department[]>{

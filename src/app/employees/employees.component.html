@@ -1,5 +1,5 @@
 <div class="container">
-  <button class="btn btn-primary">Add Employee</button>
+  <button class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
   <div class="barrier"></div>
   <table class="table table-striped">
     <thead>
@@ -13,10 +13,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let employee of employees">
-          <td>{{employee.id}}</td>
-          <td>{{employee.firstName}}</td>
-          <td>{{employee.lastName}}</td>
-          <td>{{employee.dateOfJoining | date:"yyyy-mm-dd"}}</td>
+          <td>{{employee.employeeID}}</td>
+          <td>{{employee.fullName}}</td>
+          <td>{{employee.departmentId}}</td>
+          <td>{{employee.dateOfJoining | date}}</td>
           <td class="icons"><span><i class="far fa-check-square"></i></span><span><i class="fas fa-trash-alt"></i></span></td>
         </tr>
     </tbody>

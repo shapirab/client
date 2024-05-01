@@ -28,7 +28,7 @@ export class EmployeesService {
   // getEmployess(){
   //   return this.employees;
   // }
-  private url = '';
+  private url = 'https://localhost:7177/api/employees';
   constructor(private http: HttpClient){}
 
   getEmployess(): Observable<Employee[]>{

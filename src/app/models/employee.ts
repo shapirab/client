@@ -1,8 +1,9 @@
 export interface Employee{
-  id: number,
+  employeeID: number,
   firstName: string,
   lastName: string,
   departmentId: number,
   dateOfJoining: Date,
-  profileImage: string
+  profileImage: string,
+  fullName?: string;
 }

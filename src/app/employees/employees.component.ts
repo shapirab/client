@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../models/employee';
 import { EmployeesService } from '../services/employees.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 
 @Component({
   selector: 'app-employees',
@@ -9,7 +11,7 @@ import { EmployeesService } from '../services/employees.service';
 })
 export class EmployeesComponent implements OnInit {
   employees: Employee[] = [];
-  constructor(private employeesService: EmployeesService) { }
+  constructor(private employeesService: EmployeesService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getEmloyees();
@@ -17,8 +19,18 @@ export class EmployeesComponent implements OnInit {
 
   getEmloyees(){
     this.employeesService.getEmployess().subscribe({
-      next: res => this.employees = res,
+      next: (res) => {
+        this.employees = res;
+        console.log(this.employees)
+        this.employees.forEach(employee => {
+          employee.fullName = `${employee.firstName} ${employee.lastName}`
+        });
+      },
       error: err => console.log(err)
     });
+  }
+
+  addEmployee(){
+    this.modalService.open(AddEmployeeComponent);
   }
 }

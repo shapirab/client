@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { NavComponent } from './nav/nav.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { NavComponent } from './nav/nav.component';
     HomeComponent,
     EmployeesComponent,
     DepartmentsComponent,
-    NavComponent
+    NavComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
