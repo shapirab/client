@@ -12,6 +12,9 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { NavComponent } from './nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { AddEmployeeFormComponent } from './add-employee-form/add-employee-form.component';
+
+import { FormsModule, NgForm } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,14 +23,16 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     EmployeesComponent,
     DepartmentsComponent,
     NavComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    AddEmployeeFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
