@@ -29,13 +29,14 @@ export class AddEmployeeFormComponent implements OnInit {
   }
 
   onSave(values: Employee){
-    console.log(values);
-    console.log(values.departmentId);
     this.employeeService.addEmployee(values).subscribe({
-      next: res => console.log(res),
+      next: (res) => {
+        console.log(res);
+        this.activeModal.close();
+      },
       error: err => console.log(err)
     });
-    this.activeModal.close();
+
   }
 
   handleFileChange(event: any):void{

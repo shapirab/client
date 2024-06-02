@@ -21,7 +21,6 @@ export class EmployeesComponent implements OnInit {
     this.employeesService.getEmployess().subscribe({
       next: (res) => {
         this.employees = res;
-        console.log(this.employees)
         this.employees.forEach(employee => {
           employee.fullName = `${employee.firstName} ${employee.lastName}`
         });
@@ -31,6 +30,9 @@ export class EmployeesComponent implements OnInit {
   }
 
   addEmployee(){
-    this.modalService.open(AddEmployeeComponent);
+    this.modalService.open(AddEmployeeComponent).result.then(() => {
+      console.log('In employees component: modal was closed')
+      this.getEmloyees();
+    });
   }
 }
