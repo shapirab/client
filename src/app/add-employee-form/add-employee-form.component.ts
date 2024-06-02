@@ -4,6 +4,8 @@ import { Employee } from '../models/employee';
 import { Department } from '../models/department';
 import { DepartmentsService } from '../services/departments.service';
 import { error } from 'console';
+import { EmployeesService } from '../services/employees.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-employee-form',
@@ -15,16 +17,26 @@ export class AddEmployeeFormComponent implements OnInit {
   //selectedImage: File | null = null;
   url: string | ArrayBuffer | null | undefined;
   constructor(private departmentService: DepartmentsService,
-    private changeDetector: ChangeDetectorRef) { }
+    private employeeService: EmployeesService,
+    private activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
     this.departmentService.getDepartments().subscribe({
       next: res => this.departments = res,
       error: err => console.log(err)
     });
+    this.url = '../../assets/portrait-solid.png';
   }
 
-  onSave(values: Employee){}
+  onSave(values: Employee){
+    console.log(values);
+    console.log(values.departmentId);
+    this.employeeService.addEmployee(values).subscribe({
+      next: res => console.log(res),
+      error: err => console.log(err)
+    });
+    this.activeModal.close();
+  }
 
   handleFileChange(event: any):void{
     if(event.target.files){
@@ -35,32 +47,6 @@ export class AddEmployeeFormComponent implements OnInit {
       };
     }
   }
-
-  // handleFileChange(event:Event):void {
-  //   let inputElement = event.target as HTMLInputElement;
-  //   if (inputElement.files && inputElement.files.length > 0) {
-  //     this.selectedImage = inputElement.files[0];
-  //     this.getObjectUrl(this.selectedImage);
-
-
-  //     //this.changeDetector.detectChanges();
-  //   // setTimeout(() => {
-  //   //   if (inputElement.files && inputElement.files.length > 0) {
-  //   //     this.selectedImage = inputElement.files[0];
-  //   //   }
-  //   // }, 0);
-  //   }
-  // }
-
-  // getObjectUrl(file: File) {
-  //   this.url = URL.createObjectURL(file);
-  // }
-
-  // ngOnDestroy(): void {
-  //   if (this.selectedImage) {
-  //     URL.revokeObjectURL(this.getObjectUrl(this.selectedImage));
-  //   }
-  // }
 }
 
 

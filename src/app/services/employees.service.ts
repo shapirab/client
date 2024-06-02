@@ -35,4 +35,8 @@ export class EmployeesService {
     return this.http.get<Employee[]>(this.url);
   }
 
+  addEmployee(employee: Employee){
+    return this.http.post(this.url, employee);
+  }
+
 }
