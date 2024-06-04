@@ -39,4 +39,9 @@ export class EmployeesService {
     return this.http.post(this.url, employee);
   }
 
+  deleteEmployee(employeeID:number){
+    console.log('entering service delete function')
+    return this.http.delete(`${this.url}/${employeeID}`);
+  }
+
 }

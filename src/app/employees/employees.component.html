@@ -17,7 +17,10 @@
           <td>{{employee.fullName}}</td>
           <td>{{employee.departmentId}}</td>
           <td>{{employee.dateOfJoining | date}}</td>
-          <td class="icons"><span><i class="far fa-check-square"></i></span><span><i class="fas fa-trash-alt"></i></span></td>
+          <td class="icons">
+            <span><i class="far fa-check-square"></i></span>
+            <span (click)="deleteEmployee(employee.employeeID)"><i class="fas fa-trash-alt"></i></span>
+          </td>
         </tr>
     </tbody>
   </table>

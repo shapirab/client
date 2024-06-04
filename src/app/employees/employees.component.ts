@@ -35,4 +35,12 @@ export class EmployeesComponent implements OnInit {
       this.getEmloyees();
     });
   }
+
+  deleteEmployee(employeeID:number){
+    console.log('delete click occured')
+    this.employeesService.deleteEmployee(employeeID).subscribe({
+      next: () => this.getEmloyees(),
+      error: err => console.log(err)
+    });
+  }
 }
