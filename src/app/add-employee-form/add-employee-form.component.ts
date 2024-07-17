@@ -29,6 +29,9 @@ export class AddEmployeeFormComponent implements OnInit {
   }
 
   onSave(values: Employee){
+    values.profileImage = this.url;
+    console.log('Entering addEmployeeForm OnSave()');
+    console.log(values);
     this.employeeService.addEmployee(values).subscribe({
       next: (res) => {
         console.log(res);

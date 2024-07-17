@@ -40,8 +40,6 @@ export class EmployeesService {
   }
 
   deleteEmployee(employeeID:number){
-    console.log('entering service delete function')
     return this.http.delete(`${this.url}/${employeeID}`);
   }
-
 }

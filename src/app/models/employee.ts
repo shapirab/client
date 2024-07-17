@@ -4,6 +4,6 @@ export interface Employee{
   lastName: string,
   departmentId: number,
   dateOfJoining: Date,
-  profileImage: string,
-  fullName?: string;
+  profileImage: string | ArrayBuffer | null | undefined,
+  fullName?: string
 }

@@ -31,13 +31,11 @@ export class EmployeesComponent implements OnInit {
 
   addEmployee(){
     this.modalService.open(AddEmployeeComponent).result.then(() => {
-      console.log('In employees component: modal was closed')
       this.getEmloyees();
     });
   }
 
   deleteEmployee(employeeID:number){
-    console.log('delete click occured')
     this.employeesService.deleteEmployee(employeeID).subscribe({
       next: () => this.getEmloyees(),
       error: err => console.log(err)
