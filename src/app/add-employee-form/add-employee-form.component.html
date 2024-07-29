@@ -5,16 +5,17 @@
         <div class="form-group">
           <label for="firstName">First Name</label>
           <input ngModel type="text" name="firstName" id="firstName"
-          class="form-control">
+          class="form-control" [ngModel]="employee?.firstName">
         </div>
         <div class="form-group">
           <label for="lastName">Last Name</label>
           <input ngModel type="text" name="lastName" id="lastName"
-          class="form-control">
+          class="form-control" [ngModel]="employee?.lastName">
         </div>
         <div class="form-group">
           <label for="departmentId">Department</label>
-          <select id="departmentId" name="departmentId" class="form-control" ngModel>
+          <select id="departmentId" name="departmentId" class="form-control" ngModel
+          [ngModel]="employee?.departmentId">
             <option value="">Please select a department</option>
             <option *ngFor="let department of departments" [value]="department.id">{{ department.name }}</option>
           </select>
@@ -22,7 +23,8 @@
         <div class="form-group">
           <label for="dateOfJoining">Joining Date</label>
           <input type="date" class="form-control" name="dateOfJoining"
-              id="dateOfJoining" placeholder="Date of Joining" ngModel>
+              id="dateOfJoining" placeholder="Date of Joining" ngModel
+              [ngModel]="employee?.dateOfJoining">
         </div>
       </div>
       <div class="add-form__image">

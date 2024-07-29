@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-add-employee',
@@ -8,6 +9,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AddEmployeeComponent implements OnInit {
 
+  @Input() employee: Employee | undefined;
   constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {

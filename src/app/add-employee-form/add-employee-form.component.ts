@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Employee } from '../models/employee';
 import { Department } from '../models/department';
@@ -13,6 +13,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./add-employee-form.component.css']
 })
 export class AddEmployeeFormComponent implements OnInit {
+  @Input() employee: Employee | undefined;
   departments: Department[] = [];
   //selectedImage: File | null = null;
   url: string | ArrayBuffer | null | undefined;
@@ -26,15 +27,29 @@ export class AddEmployeeFormComponent implements OnInit {
       error: err => console.log(err)
     });
     this.url = '../../assets/portrait-solid.png';
+    if(this.employee){
+      this.url = this.employee.profileImage;
+    }
   }
 
   onSave(values: Employee){
+    if(this.employee){
+      console.log(values)
+      console.log(this.employee)
+      values.profileImage = this.url;
+      this.employeeService.updateEmployee(this.employee.employeeID, values)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.activeModal.close();
+        },
+        error: err => console.log(err)
+      });
+      return;
+    }
     values.profileImage = this.url;
-    console.log('Entering addEmployeeForm OnSave()');
-    console.log(values);
     this.employeeService.addEmployee(values).subscribe({
       next: (res) => {
-        console.log(res);
         this.activeModal.close();
       },
       error: err => console.log(err)

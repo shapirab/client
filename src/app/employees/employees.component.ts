@@ -41,4 +41,9 @@ export class EmployeesComponent implements OnInit {
       error: err => console.log(err)
     });
   }
+
+  showEmployee(employee: Employee){
+    let modelRef = this.modalService.open(AddEmployeeComponent);
+    modelRef.componentInstance.employee = employee;
+  }
 }
