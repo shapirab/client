@@ -15,6 +15,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { AddEmployeeFormComponent } from './add-employee-form/add-employee-form.component';
 
 import { FormsModule, NgForm } from '@angular/forms';
+import { FiltersComponent } from './filters/filters.component';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FormsModule, NgForm } from '@angular/forms';
     DepartmentsComponent,
     NavComponent,
     AddEmployeeComponent,
-    AddEmployeeFormComponent
+    AddEmployeeFormComponent,
+    FiltersComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

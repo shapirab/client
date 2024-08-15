@@ -12,11 +12,37 @@ export class DepartmentsComponent implements OnInit {
   constructor(private departmentService: DepartmentsService) { }
 
   ngOnInit(): void {
-    this.departmentService.getDepartments()
-    .subscribe({
-      next: res => this.departments = res,
-      error: err => console.log(err)
-    });
+    this.getDepartments(null, null);
   }
 
+  getDepartments(filterValue:string | undefined | null, filterType:string | undefined | null){
+    if(!filterValue){
+      this.departmentService.getDepartments()
+      .subscribe({
+        next: res => this.departments = res,
+        error: err => console.log(err)
+      });
+    }
+    else{
+      if(filterType === 'id'){
+        this.departments = this.departments.filter(department =>
+          department.id === parseInt(filterValue));
+      }
+      else if(filterType === 'name'){
+        this.departments = this.departments.filter(department =>
+          department.name
+            .toLowerCase()
+            .includes(filterValue.toLowerCase())
+        );
+      }
+    }
+  }
+
+  onFilterByIdChanged(filterValue:string, filterType:string){
+    this.getDepartments(filterValue, filterType);
+  }
+
+  onFilterByNameChanged(filterValue:string, filterType:string){
+    this.getDepartments(filterValue, filterType);
+  }
 }

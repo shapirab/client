@@ -21,6 +21,7 @@ export class EmployeesComponent implements OnInit {
     this.employeesService.getEmployess().subscribe({
       next: (res) => {
         this.employees = res;
+        console.log(this.employees)
         this.employees.forEach(employee => {
           employee.fullName = `${employee.firstName} ${employee.lastName}`
         });

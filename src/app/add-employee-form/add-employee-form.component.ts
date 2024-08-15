@@ -28,6 +28,7 @@ export class AddEmployeeFormComponent implements OnInit {
     });
     this.url = '../../assets/portrait-solid.png';
     if(this.employee){
+      console.log(this.employee)
       this.url = this.employee.profileImage;
     }
   }

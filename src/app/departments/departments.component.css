@@ -9,3 +9,9 @@ td, th{
 .fa-trash-alt{
   margin-left: 50px;
 }
+.barrier{
+  height: 2px;
+  width: 100%;
+  background-color: #eee;
+  margin-top: 1rem;
+}
